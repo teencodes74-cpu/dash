@@ -1,0 +1,136 @@
+:root {
+  --bg: #10172a;
+  --panel: #1c2847;
+  --text: #f2f6ff;
+  --accent: #24d9ff;
+  --danger: #ff3d71;
+  --success: #6cff9e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, Arial, sans-serif;
+  color: var(--text);
+  background: linear-gradient(180deg, #0b1020 0%, var(--bg) 100%);
+  display: grid;
+  place-items: center;
+}
+
+.app {
+  width: min(100vw, 1100px);
+  padding: 12px;
+}
+
+.hud {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.score-wrap,
+.progress-wrap {
+  background: var(--panel);
+  border: 1px solid #31477a;
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+
+.score-wrap {
+  min-width: 120px;
+}
+
+.label {
+  color: #b9cbf5;
+  font-size: 0.85rem;
+  margin-right: 8px;
+}
+
+.progress-wrap {
+  flex: 1;
+  min-width: 240px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.progress-track {
+  width: 100%;
+  height: 10px;
+  background: #0f1935;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #6efff4);
+  transition: width 0.08s linear;
+}
+
+#gameCanvas {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  border: 1px solid #2f446f;
+  background: #101838;
+  display: block;
+  touch-action: manipulation;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(7, 11, 24, 0.85);
+  display: grid;
+  place-content: center;
+  text-align: center;
+  gap: 8px;
+  z-index: 2;
+  padding: 16px;
+}
+
+.overlay button {
+  margin-inline: auto;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  background: var(--accent);
+  color: #011622;
+  font-weight: 700;
+}
+
+.overlay button:hover {
+  filter: brightness(1.1);
+}
+
+.tip {
+  margin: 12px 0 0;
+  text-align: center;
+  color: #b0c5f0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: 600px) {
+  .progress-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  #progressText {
+    justify-self: end;
+  }
+}
