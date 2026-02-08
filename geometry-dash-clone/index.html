@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Geometry Dash Clone</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="hud">
+        <div class="score-wrap">
+          <span class="label">Score</span>
+          <span id="score">0</span>
+        </div>
+        <div class="progress-wrap" aria-label="Level progress">
+          <span id="levelName">Level 1</span>
+          <div class="progress-track">
+            <div id="progressBar" class="progress-fill"></div>
+          </div>
+          <span id="progressText">0%</span>
+        </div>
+      </header>
+
+      <!-- Gameplay is rendered on this canvas. -->
+      <canvas id="gameCanvas" width="960" height="540" aria-label="Geometry Dash style game"></canvas>
+
+      <section id="overlay" class="overlay hidden" role="dialog" aria-live="polite">
+        <h1 id="overlayTitle">Geometry Dash Clone</h1>
+        <p id="overlayMessage">Tap, click, or press Space to jump.</p>
+        <button id="startBtn" type="button">Start Game</button>
+        <button id="restartBtn" type="button" class="hidden">Restart</button>
+      </section>
+
+      <p class="tip">Controls: <strong>Space</strong> / <strong>Click</strong> / <strong>Tap</strong></p>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
